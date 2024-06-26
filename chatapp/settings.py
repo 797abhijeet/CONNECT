@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wc7b&lgd-0bjdt*2yl+kistv6jv#=1jsbf&*jl@jj+d=ewq7st
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
 # Application definition
@@ -123,6 +123,14 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# STATICFILES_DIRS = [
+#     BASE_DIR,"static"
+# ]
+import os
+# Static files (CSS, JavaScript, images) directory
 STATICFILES_DIRS = [
-    BASE_DIR,"static"
+    os.path.join(BASE_DIR, 'static'),
 ]
+
+# Directory where collectstatic will collect static files for deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
